@@ -1,0 +1,31 @@
+<div class="generic-container col-lg-4 border">
+    <form name="myForm" class="form-horizontal" [formGroup]="service.formModel" autocomplete="off"
+        (ngSubmit)="onLogin()">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="lead">Login</span>
+                <a [routerLink]="['/register']"><button class="btn btn-danger">Sign Up!</button></a>
+            </div>
+            <div class="formcontainer">
+
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th><span class="glyphicon glyphicon-user" aria-hidden="true"></span></th>
+                <input type="text" class="form-control " formControlName="Uname" placeholder="Name">
+            </tr><br>
+            <tr>
+                <th><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></th>
+                <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+            </tr><br>
+
+
+
+        </table>
+        <div class="clearfix">
+            <button type="submit" class="btn btn-danger">Login</button>
+        </div>
+    </form>
+</div>

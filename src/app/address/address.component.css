@@ -1,0 +1,10 @@
+th,td {
+    padding:10px;
+    margin:10px
+}
+
+#saveBtn{
+    margin:0 auto;
+    display: flex;
+
+}

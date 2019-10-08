@@ -1,0 +1,76 @@
+
+
+
+<div class="row">
+        <div class="span12">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Cart</li>
+        </ul>
+        <div class="well well-small">
+            <h1>Cart </h1>
+        <hr class="soften"/>	
+    
+        <table class="table table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>CartId</th>
+                      <th>Item</th>
+                      <th>Description</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Total</th>
+                      <th>PId</th>
+                      <th>UId</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let p of productDetails">
+                    <tr>
+                        <td>{{p.cartId}}</td> 
+                      <td><img [src]="p.item"></td>
+                       <td> {{p.description}}</td> 
+                      <td>
+                          <input  type="number" class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16"  min="1">
+                      
+                      </td>
+                      <td>{{p.price}}</td>
+                      <td>
+                         {{p.price * p.quantity}}                 
+                    </td>
+                      <td>{{p.pId}}</td>
+                      <td>{{p.uId}}</td>
+                      <td>
+                        <button (click)="RemoveFromCart(p.pId)"class="btn btn-danger  btn-sm glyphicon glyphicon-remove" type="submit"></button><br><br>
+                        <button class="btn btn-primary btn-sm" type="submit">Buy</button>
+                      </td>
+                    </tr>
+                   
+                    
+                     
+                    </tbody>
+                </table><br/>
+            
+            
+                <table class="table table-bordered">
+                <tbody>
+                     <tr>
+                      <td> 
+                    <form class="form-inline">
+                      <label style="min-width:159px"> VOUCHERS Code: </label> 
+                    <input type="text" class="input-medium" placeholder="CODE">
+                    <button type="submit" class="shopBtn btn-primary"> ADD</button>
+                    </form>
+                    </td>
+                    </tr>
+                    
+                </tbody>
+                    </table>
+               	
+        <a [routerLink]="['/product']" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
+        <a [routerLink]="['/login']" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
+    
+    </div>
+    </div>
+    </div>
+

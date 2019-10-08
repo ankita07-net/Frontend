@@ -1,0 +1,118 @@
+
+<nav class="navbar navbar-default" *ngIf="!isUserLoggedIn">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span> -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a [routerLink]="['/home']"><img src="./assets/akart.png" width="60px"></a>
+
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav nav navbar-left">
+
+        <li *ngIf="isAdminLoggedIn" class="active"><a [routerLink]="['/product']">Product <span
+              class="sr-only">(current)</span></a></li>
+        <li><a [routerLink]="['/category']">Category</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" id="right">
+        <!-- <li><a [routerLink]="['/order']">Orders</a></li> -->
+        <li><a [routerLink]="['/cart']"> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+        </li>
+        <li><a [routerLink]="['/login']">Login</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span
+              class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/profile']">Profile</a></li>
+
+            <li role="separator" class="divider"></li>
+            <li><a (click)="  onLogOut()">LogOut<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</nav>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="userForm" (ngSubmit)="addData(f)" #f=ngForm>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="PName" class="form-control" placeholder="Name" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Price</label>
+              <input type="number" id="name" name="PPrice" class="form-control" placeholder="Price" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Quantity</label>
+              <input type="number" id="name" name="Quantity" class="form-control" placeholder="Quantity" ngModel>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="imagePath">Image URL</label>
+              <input type="text" id="imagePath" name="PImage" class="form-control" #imagePath ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <img [src]="imagePath.value" class="img-responsive">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">CId</label>
+              <input type="text" id="name" name="CId" class="form-control" placeholder="CId" ngModel>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-success" (click)="addData()">Add </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

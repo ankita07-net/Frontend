@@ -1,0 +1,94 @@
+
+
+<nav class="navbar navbar-default" *ngIf="!isUserLoggedIn">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span> -->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a [routerLink]="['/home']"><img src="./assets/akart.png" width="60px"></a>
+
+  
+      </div>
+  
+  
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav nav navbar-left">
+  
+          <li *ngIf="isAdminLoggedIn" class="active"><a [routerLink]="['/product']">Product <span
+                class="sr-only">(current)</span></a></li>
+          <li><a [routerLink]="['/category']">Category</a></li>
+  
+        </ul>
+  
+        <ul class="nav navbar-nav navbar-right" id="right">
+          <!-- <li><a [routerLink]="['/order']">Orders</a></li> -->
+          <li><a [routerLink]="['/cart']"> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+          </li>
+          <li><a [routerLink]="['/login']">Login</a></li>
+  
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span
+                class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a [routerLink]="['/profile']">Profile</a></li>
+  
+              <li role="separator" class="divider"></li>
+              <li><a (click)="  onLogOut()">LogOut<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  
+    </div>
+  
+  </nav>
+  
+
+<div class="generic-container col-lg-4 border">
+
+    <form name="myForm" class="form-horizontal">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="lead">Welcome</span>
+            </div>
+            
+        </div>
+
+        <table class="table ">
+
+            <tr>
+                <th>UserId</th>
+                <label>{{user.uId}}</label>
+
+            </tr><br>
+            <tr>
+
+                <th>Name</th>
+                <label>{{user.uname}}</label>
+
+
+            </tr><br>
+            <tr>
+                <th>Phone Number</th>
+                <label>{{user.phoneNumber}}</label>
+            </tr><br>
+            <tr>
+                <th>Email</th>
+                <label>{{user.email}}</label>
+            </tr><br>
+            <tr>
+                <th>Role</th>
+                <label>{{user.userRole}}</label>
+            </tr>
+
+
+        </table>
+    </form>
+</div>

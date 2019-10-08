@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="generic-container col-lg-4 border">
+        <form name="myForm" class="form-horizontal" [formGroup]="service.formModel" autocomplete="off"
+            (submit)="onSubmit()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="lead">Create Account</span>
+                </div>
+                <div class="formcontainer">
+
+                </div>
+            </div>
+
+            <table class="table ">
+                <tr>
+                    <th>Name</th>
+                    <input type="text" class="form-control " formControlName="Uname" placeholder="Enter your name"
+                        required>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('Uname').touched && service.formModel.get('Uname').errors?.required">
+
+                        This field is mandotory!
+                    </label>
+                </tr><br>
+                <tr>
+                    <th>Phone Number</th>
+                    <input type="text" class="form-control" formControlName="PhoneNumber"
+                        placeholder="Enter your Number">
+                </tr><br>
+                <tr>
+                    <th>Email</th>
+                    <input type="email" class="form-control" formControlName="Email" placeholder="enter your email"
+                        required>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid
+                        Email!</label>
+                </tr><br>
+                <tr>
+                    <th>Password</th>
+                    <input type="password" class="form-control" formControlName="Password"
+                        placeholder="enter your password" required>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('Password').touched && service.formModel.get('Password').errors?.required">This
+                        field is mandatory!</label>
+                    <label class="text-danger"
+                        *ngIf="service.formModel.get('Password').touched && service.formModel.get('Password').errors?.minlength">Minimum
+                        4 characters required </label>
+                </tr><br>
+
+            </table>
+            <div class="clearfix">
+                <button class="btn btn-primary" [disabled]="!service.formModel.valid">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+  
+  
+<nav class="navbar navbar-default" *ngIf="!isUserLoggedIn">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span> -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a [routerLink]="['/home']"><img src="./assets/akart.png" width="60px"></a>
+
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav nav navbar-left">
+
+        <li *ngIf="isAdminLoggedIn" class="active"><a [routerLink]="['/product']">Product <span
+              class="sr-only">(current)</span></a></li>
+        <li><a [routerLink]="['/category']">Category</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" id="right">
+        <!-- <li><a [routerLink]="['/order']">Orders</a></li> -->
+        <li><a [routerLink]="['/cart']"> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+        </li>
+        <li><a [routerLink]="['/login']">Login</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span
+              class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/profile']">Profile</a></li>
+
+            <li role="separator" class="divider"></li>
+            <li><a (click)="  onLogOut()">LogOut<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</nav>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form name="myForm" class="form-horizontal" [formGroup]="formModel" autocomplete="off">
+        <div class="alert alert-info" role="alert">
+          <p>Please enter your card details below.</p>
+        </div>
+        <hr />
+        <div class="form-group">
+          <label class="control-label" for="username" aria-placeholder="Name">Card Holder's Name</label>
+
+          <div class="controls">
+            <input type="text" id="username" formControlname="username" placeholder="Enter your name"
+              class="form-control" required>
+            <label class="text-danger"
+              *ngIf="formModel.get('username').touched && formModel.get('username').errors?.required">please enter your
+              name</label>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="control-label" for="card_number">Card Number</label>
+
+          <div class="controls">
+            <input type="text" id="card_number" formControlname="card_number" placeholder="Enter your Number"
+              class="form-control" required>
+            <label class="text-danger"
+              *ngIf="formModel.get('card_number').touched && formModel.get('card_number').errors?.required">enter your
+              number</label>
+
+          </div>
+        </div>
+        <hr />
+
+        <div class="form-group">
+          <label class="control-label" for="expiry_month">Card Expiry Date</label>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <select class="form-control" formControlname="expiry_month" id="expiry_month" required>
+                <label class="text-danger"
+                  *ngIf="formModel.get('expiry_month').touched && formModel.get('expiry_month').errors?.required">this
+                  field os mandatory</label>
+                <option>Month</option>
+                <option value="01">Jan (01)</option>
+                <option value="02">Feb (02)</option>
+                <option value="03">Mar (03)</option>
+                <option value="04">Apr (04)</option>
+                <option value="05">May (05)</option>
+                <option value="06">June (06)</option>
+                <option value="07">July (07)</option>
+                <option value="08">Aug (08)</option>
+                <option value="09">Sep (09)</option>
+                <option value="10">Oct (10)</option>
+                <option value="11">Nov (11)</option>
+                <option value="12">Dec (12)</option>
+              </select>
+            </div>
+
+            <div class="col-sm-3">
+              <select class="form-control" formControlname="expiry_year" required>
+                <label class="text-danger"
+                  *ngIf="formModel.get('expiry_year').touched && formModel.get('expiry_year').errors?.required">This
+                  field is mandatory</label>
+                <option value="">Year</option>
+                <option value="13">2013</option>
+                <option value="14">2014</option>
+                <option value="15">2015</option>
+                <option value="16">2016</option>
+                <option value="17">2017</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+
+            <div class="form-group">
+              <label class="control-label" for="password_confirm">Card CVV</label>
+              <input type="password" id="password_confirm" formControlname="password_confirm" placeholder=""
+                class="form-control" required>
+              <label class="text-danger"
+                *ngIf="formModel.get('password_confirm').touched && formModel.get('password_confirm').errors?.required">this
+                field is mandatory</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <button *ngIf="isinfovalid" (click)="Order()" class="btn btn-success">Pay Now</button>
+            </div>
+          </div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-5">
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>

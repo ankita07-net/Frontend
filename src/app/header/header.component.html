@@ -1,0 +1,49 @@
+<!-- <nav class="navbar navbar-default" *ngIf="!isUserLoggedIn">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span> -->
+        <!-- <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src="./assets/akart.png" width="60px">
+
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav nav navbar-left">
+
+        <li *ngIf="isAdminLoggedIn" class="active"><a [routerLink]="['/product']">Product <span
+              class="sr-only">(current)</span></a></li>
+        <li><a [routerLink]="['/category']">Category</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" id="right"> -->
+        <!-- <li><a [routerLink]="['/order']">Orders</a></li> -->
+        <!-- <li><a [routerLink]="['/cart']"> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+        </li>
+        <li><a [routerLink]="['/login']">Login</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span
+              class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/profile']">Profile</a></li>
+
+            <li role="separator" class="divider"></li>
+            <li><a (click)="  onLogOut()">LogOut<span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</nav> --> 
+<app-home></app-home>
